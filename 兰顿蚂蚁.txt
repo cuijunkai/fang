@@ -1,0 +1,81 @@
+#include<stdio.h>  
+int main()  
+{  
+    int line,row;  
+    int arr[150][150];  
+    int l,r,k,i,j;  
+    char c;  
+    scanf("%d%d",&line,&row);  
+    for(i=0;i<line;i++)  
+    {  
+        for(j=0;j<row;j++)  
+        {  
+            scanf("%d",&arr[i][j]);  
+        }  
+    }  
+    scanf("%d %d %c %d",&l,&r,&c,&k);  
+    while(k--)  
+    {  
+        switch(c)  
+        {  
+            case 'U':  
+                if(arr[l][r]==0)  
+                {  
+                    c='L';  
+                    arr[l][r]=1;  
+                    r--;  
+                }  
+                else  
+                {  
+                    c='R';  
+                    arr[l][r]=0;  
+                    r++;  
+                }  
+                break;  
+            case 'D':  
+                if(arr[l][r]==0)  
+                {  
+                    c='R';  
+                    arr[l][r]=1;  
+                    r++;  
+                }  
+                else  
+                {  
+                    c='L';  
+                    arr[l][r]=0;  
+                    r--;  
+                }  
+                break;  
+            case 'L':  
+                if(arr[l][r]==0)  
+                {  
+                    c='D';  
+                    arr[l][r]=1;  
+                    l++;  
+                }  
+                else  
+                {  
+                    c='U';  
+                    arr[l][r]=0;  
+                    l--;  
+                }  
+                break;  
+            case 'R':  
+                if(arr[l][r]==0)  
+                {  
+                    c='U';  
+                    arr[l][r]=1;  
+                    l--;  
+                }  
+                else  
+                {  
+                    c='D';  
+                    arr[l][r]=0;  
+                    l++;  
+                }  
+                break;  
+        }  
+    }  
+    printf("%d %d\n",l,r);  
+    return 0;  
+}  
